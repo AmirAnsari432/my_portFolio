@@ -1,10 +1,16 @@
+import Header from "./components/Header";
+import Home from "./components/Home";
+
 function App() {
   return (
-    <div className="App">
-      <h1>is this my portFolio</h1>
-      <h2>this line is testing for git</h2>
-    </div>
+    <>
+      <Header />
+      <Home />
+    </>
   );
 }
+
+
+
 
 export default App;
