@@ -1,10 +1,29 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { animate, motion } from "framer-motion";
+import React, { useRef } from "react";
 import Typewriter from "typewriter-effect";
 import { BsArrowUpRight, BsChevronDown } from "react-icons/bs";
 import Bale from "../assets/Pic.JPG";
 
 function Home() {
+  const clientCount = useRef();
+  const projectsCount = useRef();
+  const animationProjectsCount = () => {
+    animate(0, 4, {
+      duration: 2,
+      onUpdate: (v) => {
+        clientCount.current.textContent = v.toFixed();
+      },
+    });
+  };
+  const animationClientCount = () => {
+    animate(0, 100, {
+      duration: 1,
+      onUpdate: (v) => {
+        projectsCount.current.textContent = v.toFixed();
+      },
+    });
+  };
+
   const animation = {
     h1: {
       initial: {
@@ -48,25 +67,34 @@ function Home() {
           <div>
             <a href="mailto:amirbhai432@gmail.com"> Hire me </a>
             <a href="#work">
-              Projects Done <BsArrowUpRight />
+              Projects <BsArrowUpRight />
             </a>
           </div>
           <article>
             <p>
-              +<span>100</span>
+              <motion.span
+                whileInView={animationProjectsCount}
+                ref={projectsCount}
+              >
+         
+              </motion.span>
             </p>
             <span>Clients Wordwide</span>
           </article>
           <aside>
             <article>
               <p>
-                +<span>4</span>
+                +
+                <motion.span
+                  whileInView={animationClientCount}
+                  ref={clientCount}
+                ></motion.span>
               </p>
-              <span>projects </span>
+              <span>Projects Done</span>
             </article>
             <article data-special>
               <p>Contact</p>
-              <span>Amirbhai432@gmail</span>
+              <span>Amirbhai432@gmail.com</span>
             </article>
           </aside>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <nav>
+    <nav className="fixed-top bg-primary" >
       <NavContent />
     </nav>
   );
@@ -14,7 +14,7 @@ const NavContent = () => (
     <div>
       <a href="#home">Home</a>
       <a href="#work">Work</a>
-      <a href="#experince">Experince</a>
+      <a href="#timeline">Experince</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
